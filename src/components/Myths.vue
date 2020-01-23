@@ -1,17 +1,19 @@
 <template>
     <div>
-        <div v-for="myth in Myths">
-<!--            <MythsItem v-bind:Myth="myth"/>-->
-            <h3>{{myth.title}}</h3>
+        <div v-bind:key="myth.id" v-for="myth in myths">
+            <MythItem v-bind:myth="myth"/>
         </div>
     </div>
 </template>
 
 <script>
-    // import MythsItem from "./MythsItem";
+    import MythItem from "./MythItem";
 
     export default {
         name: "Myths",
+        components: {
+            MythItem
+        },
         props: ["myths"]
     }
 </script>

@@ -1,13 +1,16 @@
 <template>
-    <div>
-        <p>{{Myth.title}}</p>
+    <div class="Myth-Item" v-bind:class="{'is-complete':myth.completed}">
+        <p>
+            <input type="checkbox" v-on:change="markComplete">
+            {{myth.title}}
+        </p>
     </div>
 </template>
 
 <script>
     export default {
-        name: "MythsItem",
-        props: ["Myth"]
+        name: "MythItem",
+        props: ["myth"]
     }
 </script>
 
