@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-bind:key="myth.id" v-for="myth in myths">
-            <MythItem v-bind:myth="myth"/>
+            <MythItem v-bind:myth="myth" v-on:del-myth="$emit('del-myth', myth.id)"/>
         </div>
     </div>
 </template>

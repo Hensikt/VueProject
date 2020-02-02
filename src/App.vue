@@ -1,15 +1,18 @@
 <template>
   <div id="app">
-    <Myths v-bind:myths="myths"/>
+    <Header/>
+    <Myths v-bind:myths="myths" v-on:del-myth="deleteMyth"/>
   </div>
 </template>
 
 <script>
+  import Header from "./components/layout/Header";
   import Myths from './components/Myths'
 
 export default {
   name: 'app',
   components: {
+    Header,
     Myths
   },
   data(){
@@ -31,6 +34,11 @@ export default {
           completed: false
         }
       ]
+    }
+  },
+  methods: {
+    deleteMyth(id){
+      this.myths = this.myths.filter(myth => myth.id !== id);
     }
   }
 }

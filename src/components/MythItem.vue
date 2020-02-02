@@ -3,6 +3,7 @@
         <p>
             <input type="checkbox" v-on:change="markComplete">
             {{myth.title}}
+            <button @click="$emit('del-myth', myth.id)" class="del">x</button>
         </p>
     </div>
 </template>
@@ -10,7 +11,12 @@
 <script>
     export default {
         name: "MythItem",
-        props: ["myth"]
+        props: ["myth"],
+        methods: {
+            markComplete(){
+                this.myth.completed = !this.myth.completed;
+            }
+        }
     }
 </script>
 
